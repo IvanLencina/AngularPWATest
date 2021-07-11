@@ -28,7 +28,11 @@ export class ProductsComponent implements OnInit {
   fetchProducts() {
     this.productsService.getAllProducts()
     .subscribe(products => {
-      this.products = products;
+      this.products = products.map((product: Product) => {
+        product.image = '/assets/images/image.png'
+
+        return product;
+      });
     });
   }
 
